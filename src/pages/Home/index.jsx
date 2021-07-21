@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import MainHome from '../../components/MainHome';
+import Navbar from '../../components/Navbar';
 
 function Home() {
   return (
     <>
-
-        form
-      <Link to="/list">Lista</Link>
+      <Navbar />
+      <MainHome />
     </>
   );
 }
