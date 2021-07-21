@@ -13,7 +13,6 @@ function Navbar() {
 		if (url.pathname === "/list") {
 			document.getElementById("list").classList.add("active");
 		}
-    
 	});
 
 	return (

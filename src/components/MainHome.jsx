@@ -41,7 +41,10 @@ function MainHome() {
 					onChange={(e) => {
 						setFlavor(e.target.value);
 					}}>
-					<option value="leite condensado">Leite Condensado</option>
+					<option value="">Sabor</option>
+					<option value="leite condensado" selected>
+						Leite Condensado
+					</option>
 					<option value="chocolate">Chocolate</option>
 					<option value="abacaxi">Abacaxi</option>
 					<option value="goiaba">Goiaba</option>
@@ -53,6 +56,8 @@ function MainHome() {
 					name="quantity"
 					id="input_quantity"
 					type="number"
+					min="1"
+					max="500"
 					value={quantity}
 					onChange={(e) => setQuantity(e.target.value)}
 				/>
