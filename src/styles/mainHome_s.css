@@ -1,0 +1,7 @@
+#main_home {
+	margin-left: 205px;
+	border: 1px solid red;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}

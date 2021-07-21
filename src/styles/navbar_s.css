@@ -3,6 +3,7 @@
 	background-color: #d61c32;
 	min-width: 200px;
 	min-height: 100vh;
+	position: absolute;
 }
 
 .item_menu {
