@@ -14,18 +14,20 @@ function MainHome() {
 
 	return (
 		<main id="main_home" method="POST">
+			<h1>Cadastro</h1>
 			<form id="form" onSubmit={HandleSubmit}>
 				<label htmlFor="name">Nome:</label>
 				<input
 					name="name"
 					value={name}
+					id="input_name"
 					onChange={(e) => setName(e.target.value)}
 				/>
 
 				<label htmlFor="adress">Endereco:</label>
 				<input
 					name="adress"
-					id="adress"
+					id="input_adress"
 					value={adress}
 					onChange={(e) => setAdress(e.target.value)}
 				/>
@@ -49,11 +51,14 @@ function MainHome() {
 				<label htmlFor="quantity">Quantidade:</label>
 				<input
 					name="quantity"
+					id="input_quantity"
 					type="number"
 					value={quantity}
 					onChange={(e) => setQuantity(e.target.value)}
 				/>
-				<button type="submit">Cadastrar</button>
+				<button type="submit" id="button_form">
+					Cadastrar
+				</button>
 			</form>
 		</main>
 	);
