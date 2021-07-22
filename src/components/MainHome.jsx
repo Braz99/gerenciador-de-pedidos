@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "../styles/mainHome_s.css";
 
@@ -6,14 +6,21 @@ function MainHome() {
 	let [name, setName] = useState("");
 	let [adress, setAdress] = useState("");
 	let [flavor, setFlavor] = useState("");
-	let [quantity, setQuantity] = useState(0);
+	let [quantity, setQuantity] = useState(1);
+	let [price, setPrice] = useState(10.0);
 	let storage = localStorage.length + 1;
 
-	let dados = {
+	useEffect(() => {
+		let quant_int = parseInt(quantity);
+
+		setPrice(parseFloat(quant_int * 10.0));
+	}, [quantity]);
+
+	let data = {
 		name: "",
 		adress: "",
 		order: [],
-		ativo: true,
+		active: true,
 	};
 
 	function HandleSubmit(event) {
@@ -25,32 +32,63 @@ function MainHome() {
 				hideProgressBar: true,
 			});
 		} else {
-			let a = false;
+			let exist = false;
 			for (let index = 0; index < storage; index++) {
 				let items = JSON.parse(localStorage.getItem(index));
 
-				if (localStorage.getItem(index) === null && a === false) {
-					dados.name = name;
-					dados.adress = adress;
-					dados.order.push({ flavor: flavor, quantity: parseInt(quantity) });
-					localStorage.setItem(index, JSON.stringify(dados));
+				if (localStorage.getItem(index) === null && exist === false) {
+					data.name = name;
+					data.adress = adress;
+					data.order.push({
+						flavor: flavor,
+						quantity: parseInt(quantity),
+						price: price,
+					});
+					localStorage.setItem(index, JSON.stringify(data));
+
+					toast.success("Cliente Cadastrado!", {
+						autoClose: 3000,
+						position: "top-center",
+						hideProgressBar: true,
+					});
 				} else if (localStorage.getItem(index) !== null) {
 					if (items.name === name) {
-						a = true;
+						exist = true;
+						data.active = true;
+						data.name = name;
+						data.adress = adress;
 
-						dados.name = name;
-						dados.adress = adress;
 						let number = parseInt(items.order[0].quantity) + parseInt(quantity);
-						console.log(number);
-						console.log(parseInt(items.order[0].quantity));
-						parseInt(quantity);
-						dados.order.pop();
-						dados.order.push({ flavor: flavor, quantity: number });
-						localStorage.setItem(index, JSON.stringify(dados));
+
+						if (items.order[0].flavor !== flavor) {
+							number = parseInt(quantity);
+						}
+
+						let total_price = parseFloat(number * 10.0);
+
+						data.order.pop();
+
+						data.order.push({
+							flavor: flavor,
+							quantity: number,
+							price: total_price,
+						});
+						localStorage.setItem(index, JSON.stringify(data));
 					}
+
+					toast.warning(`Dados de ${name} atualizados com sucesso!`, {
+						autoClose: 3000,
+						position: "top-center",
+						hideProgressBar: true,
+					});
 				}
-				console.log(index);
 			}
+
+			setName("");
+			setAdress("");
+			setFlavor("");
+			setQuantity(1);
+			setPrice(10.0);
 		}
 	}
 
@@ -101,6 +139,7 @@ function MainHome() {
 					value={quantity}
 					onChange={(e) => setQuantity(e.target.value)}
 				/>
+				<h4>Preço: R$ {parseFloat(price).toFixed(2).replace(".", ",")}</h4>
 				<button type="submit" id="button_form">
 					Cadastrar
 				</button>
