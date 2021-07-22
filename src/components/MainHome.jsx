@@ -89,13 +89,13 @@ function MainHome() {
 							price: total_price,
 						});
 						localStorage.setItem(index, JSON.stringify(data));
-					}
 
-					toast.warning(`Dados de ${name} atualizados com sucesso!`, {
-						autoClose: 3000,
-						position: "top-center",
-						hideProgressBar: true,
-					});
+						toast.warning(`Dados de ${name} atualizados com sucesso!`, {
+							autoClose: 3000,
+							position: "top-center",
+							hideProgressBar: true,
+						});
+					}
 				}
 			}
 
