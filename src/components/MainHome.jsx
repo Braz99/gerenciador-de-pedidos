@@ -9,6 +9,7 @@ function MainHome() {
 	let [quantity, setQuantity] = useState(1);
 	let [price, setPrice] = useState(10.0);
 	let storage = localStorage.length + 1;
+	let exist = false;
 
 	useEffect(() => {
 		let quant_int = parseInt(quantity);
@@ -23,6 +24,21 @@ function MainHome() {
 		active: true,
 	};
 
+	function handleName(event) {
+		event.preventDefault();
+
+		let name = event.target.value;
+
+		for (let id = 0; id < localStorage.length; id++) {
+			let item_data = JSON.parse(localStorage.getItem(id));
+			if (item_data.name === name) {
+				setAdress(item_data.adress);
+			}
+		}
+
+		setName(name);
+	}
+
 	function HandleSubmit(event) {
 		event.preventDefault();
 		if (name === "" || adress === "" || flavor === "" || quantity === "") {
@@ -32,7 +48,6 @@ function MainHome() {
 				hideProgressBar: true,
 			});
 		} else {
-			let exist = false;
 			for (let index = 0; index < storage; index++) {
 				let items = JSON.parse(localStorage.getItem(index));
 
@@ -101,7 +116,7 @@ function MainHome() {
 					name="name"
 					value={name}
 					id="input_name"
-					onChange={(e) => setName(e.target.value)}
+					onChange={(e) => handleName(e)}
 				/>
 
 				<label htmlFor="adress">Endereco:</label>
