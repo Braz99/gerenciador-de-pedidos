@@ -5,14 +5,12 @@ import "../styles/mainDelete_s.css";
 function MainDelete() {
 	return (
 		<main id="main_delete">
-			<h1>Apagar Cadastros</h1>
+			<h1>Apagar pedidos</h1>
 
-			<p>
-				Clique no botão a seguir para apagar todos os cadastros de clientes.
-			</p>
+			<p>Clique no botão a seguir para apagar todos os pedidos dos clientes.</p>
 
 			<button id="button_delete" onClick={handleDelete}>
-				Apagar Cadastros
+				Apagar Pedidos
 			</button>
 		</main>
 	);

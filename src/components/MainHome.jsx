@@ -61,7 +61,7 @@ function MainHome() {
 					});
 					localStorage.setItem(index, JSON.stringify(data));
 
-					toast.success("Cliente Cadastrado!", {
+					toast.success("Pedido registrado!", {
 						autoClose: 3000,
 						position: "top-center",
 						hideProgressBar: true,
@@ -90,7 +90,7 @@ function MainHome() {
 						});
 						localStorage.setItem(index, JSON.stringify(data));
 
-						toast.warning(`Dados de ${name} atualizados com sucesso!`, {
+						toast.warning(`Pedido de ${name} atualizado com sucesso!`, {
 							autoClose: 3000,
 							position: "top-center",
 							hideProgressBar: true,
@@ -109,7 +109,7 @@ function MainHome() {
 
 	return (
 		<main id="main_home" method="POST">
-			<h1>Cadastro</h1>
+			<h1>Registro de pedidos</h1>
 			<form id="form" onSubmit={HandleSubmit}>
 				<label htmlFor="name">Nome:</label>
 				<input
@@ -156,7 +156,7 @@ function MainHome() {
 				/>
 				<h4>Preço: R$ {parseFloat(price).toFixed(2).replace(".", ",")}</h4>
 				<button type="submit" id="button_form">
-					Cadastrar
+					Registrar
 				</button>
 			</form>
 		</main>

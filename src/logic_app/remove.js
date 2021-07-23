@@ -17,7 +17,7 @@ export function remove(name) {
 			new_data.order.push({ flavor: "", quantity: 1, price: 10.0 });
 			localStorage.setItem(index, JSON.stringify(new_data));
 
-			toast.error(`${name} removido com sucesso!`, {
+			toast.error(`Pedido removido com sucesso!`, {
 				autoClose: 2500,
 				position: "top-center",
 				hideProgressBar: true,

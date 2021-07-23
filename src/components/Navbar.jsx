@@ -23,13 +23,13 @@ function Navbar() {
 		<nav id="navbar">
 			<ul id="menu">
 				<li className="item_menu" id="register">
-					<Link to="/">Cadastrar</Link>
+					<Link to="/">Registrar</Link>
 				</li>
 				<li className="item_menu " id="list">
 					<Link to="/list">Listar</Link>
 				</li>
 				<li className="item_menu " id="delete">
-					<Link to="/delete">Apagar cadastros</Link>
+					<Link to="/delete">Apagar registros</Link>
 				</li>
 			</ul>
 		</nav>
