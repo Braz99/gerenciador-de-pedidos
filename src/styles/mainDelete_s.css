@@ -1,0 +1,36 @@
+#main_delete {
+	margin-left: 205px;
+	padding: 20px;
+	text-align: center;
+}
+
+#main_delete h1 {
+	color: #d6132c;
+}
+
+#main_delete p {
+	margin: 20px 0px;
+	font-size: 20px;
+}
+
+#button_delete {
+	width: 20%;
+	min-width: 135px;
+	padding: 10px;
+	font-size: 20px;
+	background-color: #da504d;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#button_delete:hover {
+	background-color: #d6132c;
+}
+
+@media (max-width: 750px) {
+	#main_delete {
+		margin-left: 155px;
+	}
+}

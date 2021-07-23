@@ -10,7 +10,7 @@ function MainDelete() {
 				Clique no botão a seguir para apagar todos os cadastros de clientes.
 			</p>
 
-			<button id="delete_button" onClick={() => localStorage.clear()}>
+			<button id="button_delete" onClick={() => localStorage.clear()}>
 				Apagar Cadastros
 			</button>
 		</main>
