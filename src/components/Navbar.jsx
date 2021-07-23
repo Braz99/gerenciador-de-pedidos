@@ -13,6 +13,10 @@ function Navbar() {
 		if (url.pathname === "/list") {
 			document.getElementById("list").classList.add("active");
 		}
+
+		if (url.pathname === "/delete") {
+			document.getElementById("delete").classList.add("active");
+		}
 	});
 
 	return (
@@ -23,6 +27,9 @@ function Navbar() {
 				</li>
 				<li className="item_menu " id="list">
 					<Link to="/list">Listar</Link>
+				</li>
+				<li className="item_menu " id="delete">
+					<Link to="/delete">Apagar cadastros</Link>
 				</li>
 			</ul>
 		</nav>
