@@ -14,7 +14,7 @@ export function remove(name) {
 		if (name === list.name) {
 			new_data.name = name;
 			new_data.active = false;
-			new_data.order.push({ flavor: "", quantity: 1, price: 10.0 });
+			new_data.order.push({ flavor: "", quantity: 5, price: 10.0 });
 			localStorage.setItem(index, JSON.stringify(new_data));
 
 			toast.error(`Pedido removido com sucesso!`, {

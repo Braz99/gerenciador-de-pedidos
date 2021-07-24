@@ -6,7 +6,7 @@ function MainHome() {
 	let [name, setName] = useState("");
 	let [adress, setAdress] = useState("");
 	let [flavor, setFlavor] = useState("");
-	let [quantity, setQuantity] = useState(1);
+	let [quantity, setQuantity] = useState(5);
 	let [price, setPrice] = useState(10.0);
 	let storage = localStorage.length + 1;
 	let exist = false;
@@ -28,15 +28,17 @@ function MainHome() {
 		event.preventDefault();
 
 		let name = event.target.value;
+		let adress = "";
 
 		for (let id = 0; id < localStorage.length; id++) {
 			let item_data = JSON.parse(localStorage.getItem(id));
 			if (item_data.name === name) {
-				setAdress(item_data.adress);
+				adress = item_data.adress;
 			}
 		}
 
 		setName(name);
+		setAdress(adress);
 	}
 
 	function HandleSubmit(event) {
@@ -52,7 +54,7 @@ function MainHome() {
 				let items = JSON.parse(localStorage.getItem(index));
 
 				if (localStorage.getItem(index) === null && exist === false) {
-					data.name = name;
+					data.name = name.trim();
 					data.adress = adress;
 					data.order.push({
 						flavor: flavor,
@@ -90,7 +92,7 @@ function MainHome() {
 						});
 						localStorage.setItem(index, JSON.stringify(data));
 
-						toast.warning(`Pedido de ${name} atualizado com sucesso!`, {
+						toast.warning(`Pedido atualizado com sucesso!`, {
 							autoClose: 3000,
 							position: "top-center",
 							hideProgressBar: true,
@@ -102,7 +104,7 @@ function MainHome() {
 			setName("");
 			setAdress("");
 			setFlavor("");
-			setQuantity(1);
+			setQuantity(5);
 			setPrice(10.0);
 		}
 	}
@@ -119,7 +121,7 @@ function MainHome() {
 					onChange={(e) => handleName(e)}
 				/>
 
-				<label htmlFor="adress">Endereco:</label>
+				<label htmlFor="adress">Endereço:</label>
 				<input
 					name="adress"
 					id="input_adress"
@@ -149,7 +151,7 @@ function MainHome() {
 					name="quantity"
 					id="input_quantity"
 					type="number"
-					min="1"
+					min="5"
 					max="500"
 					value={quantity}
 					onChange={(e) => setQuantity(e.target.value)}
