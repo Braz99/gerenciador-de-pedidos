@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Site simples que simula registros de pedidos
+Link do projeto: https://gerenciadorpedidos.netlify.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Netlify Status](https://api.netlify.com/api/v1/badges/45247886-24a7-480a-ac78-d92b37a41266/deploy-status)](https://gerenciadorpedidos.netlify.app/)
 
-## Available Scripts
+## Sobre
+Este site foi feito com base no desafio do treinamento hiring coders, que é patrocinado pela VTEX. O desafio era criar um sistema para registrar cliente e produto. 
+Ele simula uma loja de doces de pote, que registra o pedido e o endereço de entrega, todos os dados são armazenados no localstorage, por ser apenas para fins didáticos. 
 
-In the project directory, you can run:
+Ferramentas usadas: Toastify, React Router DOM, localStorage, e Hooks do React.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Instalação
+Você vai precisar ter instalado em sua máquina:
 
-### `npm test`
+[GIT](https://git-scm.com)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Node.js](https://nodejs.org/en/). 
 
-### `npm run build`
+E também de um editor de código, de preferência o [VSCode](https://code.visualstudio.com/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Passos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Primeiro clone o projeto, use o terminal git bash, com o comando <code>git clone https://github.com/Braz99/gerenciador-de-pedidos</code>
+- Depois abra a pasta no terminal usando o comando <code> cd caminho da pasta</code>
+- Com a pasta selecionada é hora de instalar todas as dependências do projeto com o comando <code>npm install</code>
+- Para executar a aplicação em modo de desenvolvimento use o comando <code>npm start</code>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ O servidor inciará na porta:3000 - acesse http://localhost:3000
+ 
+ ## Estruturação do projeto
+ 
+ Este projeto tem 3 páginas, encontradas na pasta src/pages, que são as seguintes: 
+ 
+ - Home: Com os componentes Navbar e MainHome. E tem a função de registrar os pedidos.
+ - List: Com os componentes Navbar e MainList. E tem a função de listar todos os registros e de fornecer a opção de remover;
+ - Delete: Com os componentes Navbar e MaindDelete. E tem a função de apagar todos os registros do localStorage.
 
-### `npm run eject`
+### Informações 
+- As rotas se encontram no arquivo __routes.js__, dentro de __src__;
+- Todos os componentes se encontram na pasta __src/components__;
+- A lógica de listar registros(generate_list), remover o pedido selecionado(remove) e apagar todos os registros(delete_all) se encontra na pasta __src/logic_app__ ;
+- A lógica de registrar está no componente __MainHome__;
+- Todo o estilo do projeto se encontra na pasta __src/styles__.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Licença 
+License MIT
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Autor 
+Fabrício Brazil
