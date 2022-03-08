@@ -8,13 +8,8 @@ export default function MainHome() {
   let [flavor, setFlavor] = useState("");
   let [quantity, setQuantity] = useState(5);
   let [price, setPrice] = useState(10.0);
-
-  let clients = JSON.parse(localStorage.getItem("clients"));
-
-  let saveStore = (info) =>
-    localStorage.setItem("clients", JSON.stringify([...info]));
-
-  let clientList = clients ?? [];
+  let storage = localStorage.length + 1;
+  let exist = false;
 
   useEffect(() => {
     let quant_int = parseInt(quantity);
@@ -26,87 +21,92 @@ export default function MainHome() {
     name: "",
     adress: "",
     order: [],
+    active: true,
   };
 
   function handleName(event) {
     event.preventDefault();
 
     let name = event.target.value;
+    let adress = "";
 
-    console.log(name, "name");
-
-    clients.forEach((item) => {
-      if (item.name === name) {
-        setAdress(item.adress);
+    for (let id = 0; id < localStorage.length; id++) {
+      let item_data = JSON.parse(localStorage.getItem(id));
+      if (item_data.name === name) {
+        adress = item_data.adress;
       }
-    });
+    }
 
     setName(name);
+    setAdress(adress);
   }
-
-  //   --------------------------Another function --------------------
 
   function HandleSubmit(event) {
     event.preventDefault();
-
-    let check = [name, adress, flavor, quantity];
-
-    let exists = clients.find((client) => client.name === name);
-
-    if (check.includes("")) {
+    if (name === "" || adress === "" || flavor === "" || quantity === "") {
       toast.error("Preencha todos os campos corretamente!", {
-        autoClose: 2500,
-        id: 15,
-      });
-      return false;
-    }
-
-    if (!exists) {
-      data.name = name.trim();
-      data.adress = adress;
-      data.order.push({
-        flavor: flavor,
-        quantity: parseInt(quantity),
-        price: price,
-      });
-
-      clientList.push(data);
-
-      saveStore(clientList);
-
-      toast.success("Pedido registrado!", {
         autoClose: 3000,
         position: "top-center",
         hideProgressBar: true,
       });
     } else {
-      exists.name = name;
-      exists.adress = adress;
+      for (let index = 0; index < storage; index++) {
+        let items = JSON.parse(localStorage.getItem(index));
 
-      exists.quantity = 1;
+        if (localStorage.getItem(index) === null && exist === false) {
+          data.name = name.trim();
+          data.adress = adress;
+          data.order.push({
+            flavor: flavor,
+            quantity: parseInt(quantity),
+            price: price,
+          });
+          localStorage.setItem(index, JSON.stringify(data));
 
-      exists.order = [];
+          toast.success("Pedido registrado!", {
+            autoClose: 3000,
+            position: "top-center",
+            hideProgressBar: true,
+          });
+        } else if (localStorage.getItem(index) !== null) {
+          if (items.name === name) {
+            exist = true;
+            data.active = true;
+            data.name = name;
+            data.adress = adress;
 
-      exists.order.push({
-        flavor: flavor,
-        quantity: quantity,
-        price: price,
-      });
+            let number = parseInt(items.order[0].quantity) + parseInt(quantity);
 
-      saveStore([...clientList]);
+            if (items.order[0].flavor !== flavor) {
+              number = parseInt(quantity);
+            }
 
-      toast.warning(`Pedido atualizado com sucesso!`, {
-        autoClose: 3000,
-        position: "top-center",
-        hideProgressBar: true,
-      });
+            let total_price = parseFloat(number * 10.0);
+
+            data.order.pop();
+
+            data.order.push({
+              flavor: flavor,
+              quantity: number,
+              price: total_price,
+            });
+            localStorage.setItem(index, JSON.stringify(data));
+
+            toast.warning(`Pedido atualizado com sucesso!`, {
+              autoClose: 3000,
+              position: "top-center",
+              hideProgressBar: true,
+            });
+          }
+        }
+      }
+
+      setName("");
+      setAdress("");
+      setFlavor("");
+      setQuantity(5);
+      setPrice(10.0);
     }
-
-    setName("");
-    setAdress("");
-    setFlavor("");
-    setQuantity(5);
-    setPrice(10.0);
   }
 
   return (
@@ -165,3 +165,4 @@ export default function MainHome() {
     </main>
   );
 }
+
