@@ -1,37 +1,37 @@
 #navbar {
-	display: inline-block;
-	background-color: #d61c32;
-	width: 200px;
-	min-height: 100%;
-	position: fixed;
+  display: inline-block;
+  background-color: #d61c32;
+  width: 200px;
+  min-height: 100%;
+  position: fixed;
 }
 
 .item_menu {
-	margin-top: 25px;
-	list-style: none;
-	padding: 20px;
-	text-align: center;
+  margin-top: 25px;
+  list-style: none;
+  padding: 20px;
+  text-align: center;
 }
 
 .item_menu a {
-	color: #fff;
-	font-size: 25px;
+  color: #fff;
+  font-size: 25px;
 }
 
 .active {
-	background-color: #fff;
+  background-color: #fff;
 }
 
 .active a {
-	color: #d61c32;
+  color: #d61c32;
 }
 
 @media (max-width: 760px) {
-	#navbar {
-		width: 150px;
-	}
+  #navbar {
+    width: 150px;
+  }
 
-	.item_menu a {
-		font-size: 20px;
-	}
+  .item_menu a {
+    font-size: 20px;
+  }
 }
