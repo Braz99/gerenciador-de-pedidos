@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useClients } from "../provider/ClientsProvider";
 import "../styles/mainHome_s.css";
+import Order from "./Order";
 
 export default function MainHome() {
   let [name, setName] = useState("");
@@ -14,7 +15,6 @@ export default function MainHome() {
 
   useEffect(() => {
     let parsedQuantity = parseInt(quantity);
-
     setPrice(parseFloat(parsedQuantity * 10.0));
   }, [quantity]);
 
@@ -24,28 +24,28 @@ export default function MainHome() {
     order: [],
   };
 
-  function handleName(event) {
-    event.preventDefault();
+  function handleName(e) {
+    e.preventDefault();
 
-    let name = event.target.value;
-
-    listClients.forEach((item) => {
-      if (item.name === name) {
-        setAdress(item.adress);
-      }
-    });
+    let name = e.target.value;
 
     setName(name);
   }
 
-  //   --------------------------Another function --------------------
+  function handleAdress(e) {
+    let adress = e.target.value;
 
-  function HandleSubmit(event) {
+    setAdress(adress);
+  }
+
+  function handleSubmit(event) {
     event.preventDefault();
 
     let check = [name, adress, flavor, quantity];
 
-    let exists = listClients.find((client) => client.name === name);
+    let exists = listClients.find(
+      (client) => client.name === name.trim().toLowerCase()
+    );
 
     if (check.includes("")) {
       toast.error("Preencha todos os campos corretamente!", {
@@ -56,7 +56,7 @@ export default function MainHome() {
     }
 
     if (!exists) {
-      data.name = name.trim();
+      data.name = name.trim().toLowerCase();
       data.adress = adress;
       data.order.push({
         flavor: flavor,
@@ -108,7 +108,7 @@ export default function MainHome() {
   return (
     <main id="main_home" method="POST">
       <h1>Registro de pedidos</h1>
-      <form id="form" onSubmit={HandleSubmit}>
+      <form id="form" onSubmit={(e) => handleSubmit(e)}>
         <label htmlFor="name">Nome:</label>
         <input
           name="name"
@@ -122,38 +122,11 @@ export default function MainHome() {
           name="adress"
           id="input_adress"
           value={adress}
-          onChange={(e) => setAdress(e.target.value)}
+          onChange={(e) => handleAdress(e)}
         />
 
-        <label htmlFor="list_items">Selecione o sabor:</label>
+        <Order values={{ flavor, setFlavor, quantity, setQuantity, price }} />
 
-        <select
-          name="list_items"
-          id="select_items"
-          value={flavor}
-          onChange={(e) => {
-            setFlavor(e.target.value);
-          }}
-        >
-          <option value="">Sabor</option>
-          <option value="leite condensado">Leite Condensado</option>
-          <option value="chocolate">Chocolate</option>
-          <option value="abacaxi">Abacaxi</option>
-          <option value="goiaba">Goiaba</option>
-          <option value="morango">Morango</option>
-        </select>
-
-        <label htmlFor="quantity">Quantidade:</label>
-        <input
-          name="quantity"
-          id="input_quantity"
-          type="number"
-          min="5"
-          max="500"
-          value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-        />
-        <h4>Preço: R$ {parseFloat(price).toFixed(2).replace(".", ",")}</h4>
         <button type="submit" id="button_form">
           Registrar
         </button>
