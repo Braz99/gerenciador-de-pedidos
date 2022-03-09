@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useClients } from "../provider/ClientsProvider";
 import "../styles/mainHome_s.css";
 
 export default function MainHome() {
@@ -9,17 +10,15 @@ export default function MainHome() {
   let [quantity, setQuantity] = useState(5);
   let [price, setPrice] = useState(10.0);
 
-  let clients = JSON.parse(localStorage.getItem("clients"));
+  let [listClients, setListClients] = useClients();
 
   let saveStore = (info) =>
     localStorage.setItem("clients", JSON.stringify([...info]));
 
-  let clientList = clients ?? [];
-
   useEffect(() => {
-    let quant_int = parseInt(quantity);
+    let parsedQuantity = parseInt(quantity);
 
-    setPrice(parseFloat(quant_int * 10.0));
+    setPrice(parseFloat(parsedQuantity * 10.0));
   }, [quantity]);
 
   let data = {
@@ -33,9 +32,7 @@ export default function MainHome() {
 
     let name = event.target.value;
 
-    console.log(name, "name");
-
-    clients.forEach((item) => {
+    listClients.forEach((item) => {
       if (item.name === name) {
         setAdress(item.adress);
       }
@@ -51,7 +48,7 @@ export default function MainHome() {
 
     let check = [name, adress, flavor, quantity];
 
-    let exists = clients.find((client) => client.name === name);
+    let exists = listClients.find((client) => client.name === name);
 
     if (check.includes("")) {
       toast.error("Preencha todos os campos corretamente!", {
@@ -67,12 +64,14 @@ export default function MainHome() {
       data.order.push({
         flavor: flavor,
         quantity: parseInt(quantity),
-        price: price,
+        price: parseFloat(price),
       });
 
-      clientList.push(data);
+      listClients.push(data);
 
-      saveStore(clientList);
+      setListClients([...listClients]);
+
+      saveStore(listClients);
 
       toast.success("Pedido registrado!", {
         autoClose: 3000,
@@ -83,8 +82,6 @@ export default function MainHome() {
       exists.name = name;
       exists.adress = adress;
 
-      exists.quantity = 1;
-
       exists.order = [];
 
       exists.order.push({
@@ -93,7 +90,9 @@ export default function MainHome() {
         price: price,
       });
 
-      saveStore([...clientList]);
+      setListClients([...listClients]);
+
+      saveStore([...listClients]);
 
       toast.warning(`Pedido atualizado com sucesso!`, {
         autoClose: 3000,

@@ -1,16 +1,16 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Router from "./routes";
+import Routes from "./routes";
 import "./styles/App.css";
 
 function App() {
-	return (
-		<>
-			<ToastContainer limit={1} />
-			<Router />
-		</>
-	);
+  return (
+    <>
+      <ToastContainer limit={1} />
+      <Routes />
+    </>
+  );
 }
 
 export default App;
