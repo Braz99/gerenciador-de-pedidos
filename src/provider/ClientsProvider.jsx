@@ -7,8 +7,11 @@ export function ClientsProvider({ children }) {
     JSON.parse(localStorage.getItem("clients")) ?? []
   );
 
+  let saveStore = (info) =>
+    localStorage.setItem("clients", JSON.stringify([...info]));
+
   return (
-    <clientsContext.Provider value={[listClients, setListClients]}>
+    <clientsContext.Provider value={[listClients, setListClients, saveStore]}>
       {children}
     </clientsContext.Provider>
   );

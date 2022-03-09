@@ -10,10 +10,7 @@ export default function MainHome() {
   let [quantity, setQuantity] = useState(5);
   let [price, setPrice] = useState(10.0);
 
-  let [listClients, setListClients] = useClients();
-
-  let saveStore = (info) =>
-    localStorage.setItem("clients", JSON.stringify([...info]));
+  let [listClients, setListClients, saveStore] = useClients();
 
   useEffect(() => {
     let parsedQuantity = parseInt(quantity);
