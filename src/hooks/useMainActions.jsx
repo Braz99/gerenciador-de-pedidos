@@ -24,7 +24,7 @@ export default function useMainActions() {
 
   function handleUpdate(e) {
     let name = e.target.name;
-    console.log(name);
+
     switch (name) {
       case "name":
         setName(e.target.value);

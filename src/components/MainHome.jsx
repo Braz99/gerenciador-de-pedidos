@@ -1,8 +1,7 @@
 import useMainActions from "../hooks/useMainActions";
-import "../styles/mainHome_s.css";
-
 import Order from "./Order";
 import SiteInput from "./SiteInput";
+import "../styles/mainHome_s.css";
 
 export default function MainHome() {
   let { handleSubmit, handleUpdate, name, adress, flavor, quantity, price } =
@@ -15,13 +14,13 @@ export default function MainHome() {
         <SiteInput
           name="name"
           data={name}
-          translate="Nome"
+          label="Nome"
           update={handleUpdate}
         />
         <SiteInput
           name="adress"
           data={adress}
-          translate="Endereço"
+          label="Endereço"
           update={handleUpdate}
         />
 

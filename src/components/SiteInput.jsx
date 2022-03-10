@@ -4,7 +4,7 @@ export default function SiteInput(props) {
 
   return (
     <>
-      <label htmlFor={name}>{props.translate ?? name}:</label>
+      <label htmlFor={name}>{props.label ?? name}:</label>
       <input
         name={name}
         value={data}
