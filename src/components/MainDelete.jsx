@@ -1,28 +1,8 @@
-import { toast } from "react-toastify";
-import { useClients } from "../provider/ClientsProvider";
+import useDeleteAction from "../hooks/useDeleteAction";
 import "../styles/mainDelete_s.css";
 
 export default function MainDelete() {
-  let [listClients, setListClients] = useClients();
-
-  function handleDelete() {
-    if (listClients.length > 0) {
-      localStorage.clear();
-      setListClients([]);
-
-      toast.error("Pedidos apagados!", {
-        autoClose: 2500,
-        position: "top-center",
-        id: 20,
-      });
-    } else {
-      toast.warning("Não há pedidos a serem apagados!", {
-        autoClose: 2500,
-        position: "top-center",
-        id: 21,
-      });
-    }
-  }
+  let handleDelete = useDeleteAction();
 
   return (
     <main id="main_delete">

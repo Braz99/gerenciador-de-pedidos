@@ -1,23 +1,15 @@
 export default function Order({ values }) {
-  let { flavor, setFlavor, quantity, setQuantity, price } = values;
-
-  function handleFlavor(e) {
-    setFlavor(e.target.value);
-  }
-
-  function handleQuantity(e) {
-    setQuantity(e.target.value);
-  }
+  let { handleUpdate, flavor, quantity, price } = values;
 
   return (
-    <div style={{ border: "1px solid black", padding: '10px'}}>
-      <label htmlFor="list_items">Selecione o sabor:</label>
+    <div style={{ border: "1px solid black", padding: "10px" }}>
+      <label htmlFor="flavor">Selecione o sabor:</label>
       <select
-        name="list_items"
+        name="flavor"
         id="select_items"
         value={flavor}
         onChange={(e) => {
-          handleFlavor(e);
+          handleUpdate(e);
         }}
       >
         <option value="">Sabor</option>
@@ -36,7 +28,7 @@ export default function Order({ values }) {
         min="5"
         max="500"
         value={quantity}
-        onChange={(e) => handleQuantity(e)}
+        onChange={(e) => handleUpdate(e)}
       />
       <h4>Preço: R$ {parseFloat(price).toFixed(2).replace(".", ",")}</h4>
     </div>

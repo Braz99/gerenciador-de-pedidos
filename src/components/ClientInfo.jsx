@@ -1,15 +1,7 @@
-import { useClients } from "../provider/ClientsProvider";
+import useClientActions from "../hooks/useClientActions";
 
 export default function ClientInfo({ children }) {
-  let [listClients, setListClients, saveStore] = useClients();
-
-  function removeClient(name) {
-    let newList = listClients.filter((client) => client.name !== name);
-
-    setListClients([...newList]);
-
-    saveStore(newList);
-  }
+  let { removeClient } = useClientActions();
 
   return (
     <li>
