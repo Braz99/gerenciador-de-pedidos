@@ -1,15 +1,11 @@
-import React from 'react'
-import MainList from '../../components/MainList'
-import Navbar from '../../components/Navbar'
+import Layout from "../../components/Layout";
+import MainList from "../../components/MainList";
 
 function List() {
   return (
-    <>
-
-     <Navbar />
-     <MainList />
-     
-    </>
+    <Layout>
+      <MainList />
+    </Layout>
   );
 }
 

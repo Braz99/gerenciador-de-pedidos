@@ -1,13 +1,11 @@
-import React from 'react'
-import MainDelete from '../../components/MainDelete';
-import Navbar from '../../components/Navbar';
+import Layout from "../../components/Layout";
+import MainDelete from "../../components/MainDelete";
 
 function Delete() {
   return (
-    <>
-      <Navbar />
+    <Layout>
       <MainDelete />
-    </>
+    </Layout>
   );
 }
 

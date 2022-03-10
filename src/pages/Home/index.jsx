@@ -1,12 +1,11 @@
+import Layout from "../../components/Layout";
 import MainHome from "../../components/MainHome";
-import Navbar from "../../components/Navbar";
 
 function Home() {
   return (
-    <>
-      <Navbar />
+    <Layout>
       <MainHome />
-    </>
+    </Layout>
   );
 }
 
