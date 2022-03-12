@@ -12,7 +12,12 @@ export default function ClientInfo({ children }) {
       <h2>Nome: {children.name}</h2>
       <h3>Endereço: {children.adress}</h3>
       {children.order.list.map((item, i) => (
-        <OrderInfo key={i} stateOrder={{ orders, setOrders }}>
+        <OrderInfo
+          key={i}
+          className="order-info-list"
+          stateOrder={{ orders, setOrders }}
+          noOption={true}
+        >
           {item}
         </OrderInfo>
       ))}

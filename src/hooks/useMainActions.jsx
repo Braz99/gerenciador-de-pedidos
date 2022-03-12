@@ -8,17 +8,7 @@ export default function useMainActions() {
   let [flavor, setFlavor] = useState("");
   let [quantity, setQuantity] = useState(5);
   let [price, setPrice] = useState(10.0);
-  let [orders, setOrders] = useState({
-    quantity: 0,
-    price: 0,
-    list: [
-      {
-        flavor: "",
-        quantity: 0,
-        price: price,
-      },
-    ],
-  });
+  let [orders, setOrders] = useState({ list: [] });
 
   let [listClients, setListClients, saveStore] = useClients();
 
@@ -92,14 +82,9 @@ export default function useMainActions() {
     } else {
       exists.name = nameParsed;
       exists.adress = adressParsed;
+      exists.order.list = [];
 
-      exists.order = [];
-
-      exists.order.push({
-        flavor: flavor,
-        quantity: quantity,
-        price: price,
-      });
+      exists.order.list.push(...orders.list);
 
       setListClients([...listClients]);
 
@@ -117,6 +102,7 @@ export default function useMainActions() {
     setFlavor("");
     setQuantity(5);
     setPrice(10.0);
+    setOrders({ list: [] });
   }
 
   return {

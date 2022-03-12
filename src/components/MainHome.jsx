@@ -30,7 +30,12 @@ export default function MainHome() {
         />
 
         {orders.list.map((order, i) => (
-          <OrderInfo key={i} stateOrder={{ orders, setOrders }}>
+          <OrderInfo
+            className="order-info-home"
+            key={i}
+            stateOrder={{ orders, setOrders }}
+            father={""}
+          >
             {order}
           </OrderInfo>
         ))}
