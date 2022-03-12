@@ -8,6 +8,17 @@ export default function useMainActions() {
   let [flavor, setFlavor] = useState("");
   let [quantity, setQuantity] = useState(5);
   let [price, setPrice] = useState(10.0);
+  let [orders, setOrders] = useState({
+    quantity: 0,
+    price: 0,
+    list: [
+      {
+        flavor: "",
+        quantity: 0,
+        price: price,
+      },
+    ],
+  });
 
   let [listClients, setListClients, saveStore] = useClients();
 
@@ -64,11 +75,8 @@ export default function useMainActions() {
     if (!exists) {
       data.name = nameParsed;
       data.adress = adressParsed;
-      data.order.push({
-        flavor: flavor,
-        quantity: parseInt(quantity),
-        price: parseFloat(price),
-      });
+
+      data.order = orders;
 
       listClients.push(data);
 
@@ -121,5 +129,7 @@ export default function useMainActions() {
     quantity,
     setQuantity,
     price,
+    orders,
+    setOrders,
   };
 }

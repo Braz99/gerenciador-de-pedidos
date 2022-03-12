@@ -1,19 +1,22 @@
 import useClientActions from "../hooks/useClientActions";
+import OrderInfo from "./OrderInfo";
+import useMainActions from "../hooks/useMainActions";
 
 export default function ClientInfo({ children }) {
   let { removeClient } = useClientActions();
+
+  let { orders, setOrders } = useMainActions();
 
   return (
     <li>
       <h2>Nome: {children.name}</h2>
       <h3>Endereço: {children.adress}</h3>
-      {children.order.map((item, i) => (
-        <div key={i}>
-          <h3>Sabor de {item.flavor}</h3>
-          <h3>Quantidade: {item.quantity}</h3>
-          <h3>Preço: R$ {item.price}</h3>
-        </div>
+      {children.order.list.map((item, i) => (
+        <OrderInfo key={i} stateOrder={{ orders, setOrders }}>
+          {item}
+        </OrderInfo>
       ))}
+
       <button onClick={() => removeClient(children.name)}>Remover</button>
     </li>
   );
