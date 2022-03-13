@@ -19,8 +19,11 @@ export default function useMainActions() {
   };
 
   useEffect(() => {
-    let parsedQuantity = parseInt(quantity);
-    setPrice(parseFloat(parsedQuantity * 10.0));
+    let parsedQuantity = quantity;
+
+    if (!isNaN(parsedQuantity)) {
+      setPrice(parseFloat(parsedQuantity * 10.0));
+    }
   }, [quantity]);
 
   function handleUpdate(e) {
@@ -29,6 +32,24 @@ export default function useMainActions() {
     switch (name) {
       case "name":
         setName(e.target.value);
+        let store = JSON.parse(localStorage.getItem("clients"));
+
+        let found = store?.find((client) => client.name === e.target.value);
+
+        if (found) {
+          setOrders({
+            list: [...found.order.list],
+            quantity: found.order.list.reduce((a, b) => a + b.price, 0),
+            total: found.order.list.reduce(
+              (a, b) => a + parseInt(b.quantity),
+              0
+            ),
+          });
+          setAdress(found.adress);
+        } else {
+          setOrders({ list: [] });
+          setAdress("");
+        }
         break;
       case "adress":
         setAdress(e.target.value);
@@ -38,6 +59,7 @@ export default function useMainActions() {
         break;
       case "quantity":
         setQuantity(e.target.value);
+
         break;
       default:
         break;
@@ -47,9 +69,12 @@ export default function useMainActions() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    let check = [name, adress, flavor, quantity];
+    let check = [name, adress, quantity];
 
-    if (check.includes("")) {
+    console.log(orders.list.length === 0);
+    console.log(check.includes(""));
+
+    if (check.includes("") || orders.list.length === 0) {
       toast.error("Preencha todos os campos corretamente!", {
         autoClose: 2500,
         id: 15,
@@ -85,6 +110,11 @@ export default function useMainActions() {
       exists.order.list = [];
 
       exists.order.list.push(...orders.list);
+      exists.order.total = exists.order.list.reduce((a, b) => a + b.price, 0);
+      exists.order.quantity = exists.order.list.reduce(
+        (a, b) => a + parseInt(b.quantity),
+        0
+      );
 
       setListClients([...listClients]);
 

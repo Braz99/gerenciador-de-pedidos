@@ -6,13 +6,15 @@ export default function OrderInfo({
 }) {
   let { setOrders, orders } = stateOrder;
 
-  function removeOrder(flavor) {
+  function removeOrder(e, flavor) {
+    e.preventDefault();
+
     let newOrders = orders.list.filter((order) => order.flavor !== flavor);
 
     setOrders({
-      quantity: orders.list.length,
       list: [...newOrders],
-      price: orders.price,
+      quantity: newOrders.list?.reduce((a, b) => a + b.quantity, 0),
+      total: newOrders.list?.reduce((a, b) => a + b.price, 0),
     });
   }
 
@@ -23,7 +25,9 @@ export default function OrderInfo({
       <h3>Preço: {children.price}</h3>
 
       {!noOption ? (
-        <button onClick={() => removeOrder(children.flavor)}>Excluir</button>
+        <button onClick={(e) => removeOrder(e, children.flavor)}>
+          Excluir
+        </button>
       ) : (
         ""
       )}

@@ -11,16 +11,20 @@ export default function ClientInfo({ children }) {
     <li>
       <h2>Nome: {children.name}</h2>
       <h3>Endereço: {children.adress}</h3>
-      {children.order.list.map((item, i) => (
-        <OrderInfo
-          key={i}
-          className="order-info-list"
-          stateOrder={{ orders, setOrders }}
-          noOption={true}
-        >
-          {item}
-        </OrderInfo>
-      ))}
+      <div className="orders-list-main">
+        {children.order.list.map((item, i) => (
+          <OrderInfo
+            key={i}
+            className="order-info-list"
+            stateOrder={{ orders, setOrders }}
+            noOption={true}
+          >
+            {item}
+          </OrderInfo>
+        ))}
+      </div>
+
+      <h3>Total: R$ {children.order.total.toFixed(2).replace(".", ",")}</h3>
 
       <button onClick={() => removeClient(children.name)}>Remover</button>
     </li>

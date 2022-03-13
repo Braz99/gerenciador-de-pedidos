@@ -1,16 +1,43 @@
+import { toast } from "react-toastify";
+
 export default function Order({ values }) {
   let { handleUpdate, flavor, quantity, price, orders, setOrders } = values;
 
   function addFlavor(e) {
     e.preventDefault();
-    setOrders({
-      list: [
-        ...orders.list,
-        { flavor: flavor, quantity: quantity, price: price },
-      ],
-      price: orders.list.reduce((a, b) => a + b.price, 0),
-      quantity: orders.list.length,
-    });
+
+    if (flavor === "") {
+      toast.error("Adicione um sabor!", {
+        toastId: 7,
+      });
+      return false;
+    }
+
+    let found = orders.list.find((order) => order.flavor === flavor);
+
+    if (found) {
+      found.flavor = flavor;
+      found.quantity = quantity;
+      found.price = price;
+
+      setOrders({
+        list: [...orders.list],
+        total: orders.list?.reduce((a, b) => a + b.price, 0) + price,
+        quantity:
+          orders.list?.reduce((a, b) => a + parseInt(b.quantity), 0) + quantity,
+      });
+    } else {
+      setOrders((prevState) => ({
+        list: [
+          ...orders.list,
+          { flavor: flavor, quantity: quantity, price: price },
+        ],
+        total: prevState.list?.reduce((a, b) => a + b.price, 0) + price,
+        quantity:
+          prevState.list?.reduce((a, b) => a + parseInt(b.quantity), 0) +
+          quantity,
+      }));
+    }
   }
 
   return (
