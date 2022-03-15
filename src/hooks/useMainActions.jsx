@@ -39,9 +39,12 @@ export default function useMainActions() {
         if (found) {
           setOrders({
             list: [...found.order.list],
-            quantity: found.order.list.reduce((a, b) => a + b.price, 0),
-            total: found.order.list.reduce(
-              (a, b) => a + parseInt(b.quantity),
+            quantity: orders.list.reduce(
+              (a, b) => a + b.price + found.order.price,
+              0
+            ),
+            total: orders.list.reduce(
+              (a, b) => a + parseInt(b.quantity) + found.order.quantity,
               0
             ),
           });
@@ -70,9 +73,6 @@ export default function useMainActions() {
     event.preventDefault();
 
     let check = [name, adress, quantity];
-
-    console.log(orders.list.length === 0);
-    console.log(check.includes(""));
 
     if (check.includes("") || orders.list.length === 0) {
       toast.error("Preencha todos os campos corretamente!", {

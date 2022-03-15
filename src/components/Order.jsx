@@ -20,23 +20,23 @@ export default function Order({ values }) {
       found.quantity = quantity;
       found.price = price;
 
+      let list = [...orders.list];
+
       setOrders({
-        list: [...orders.list],
-        total: orders.list?.reduce((a, b) => a + b.price, 0) + price,
-        quantity:
-          orders.list?.reduce((a, b) => a + parseInt(b.quantity), 0) + quantity,
+        list: [...list],
+        total: list.reduce((a, b) => a + b.price, 0),
+        quantity: list.reduce((a, b) => a + parseInt(b.quantity), 0),
       });
     } else {
-      setOrders((prevState) => ({
-        list: [
-          ...orders.list,
-          { flavor: flavor, quantity: quantity, price: price },
-        ],
-        total: prevState.list?.reduce((a, b) => a + b.price, 0) + price,
-        quantity:
-          prevState.list?.reduce((a, b) => a + parseInt(b.quantity), 0) +
-          quantity,
-      }));
+      let list = [
+        ...orders.list,
+        { flavor: flavor, quantity: quantity, price: price },
+      ];
+      setOrders({
+        list: [...list],
+        total: list.reduce((a, b) => a + b.price, 0),
+        quantity: list.reduce((a, b) => a + parseInt(b.quantity), 0),
+      });
     }
   }
 

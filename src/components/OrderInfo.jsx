@@ -13,8 +13,8 @@ export default function OrderInfo({
 
     setOrders({
       list: [...newOrders],
-      quantity: newOrders.list?.reduce((a, b) => a + b.quantity, 0),
-      total: newOrders.list?.reduce((a, b) => a + b.price, 0),
+      quantity: newOrders.reduce((a, b) => a + b.quantity, 0),
+      total: newOrders.reduce((a, b) => a + b.price, 0),
     });
   }
 
