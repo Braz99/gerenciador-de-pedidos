@@ -27,14 +27,15 @@ export default function useMainActions() {
   }, [quantity]);
 
   function handleUpdate(e) {
-    let name = e.target.name;
+    let nameInput = e.target.name;
 
-    switch (name) {
+    switch (nameInput) {
       case "name":
         setName(e.target.value);
+
         let store = JSON.parse(localStorage.getItem("clients"));
 
-        let found = store?.find((client) => client.name === e.target.value);
+        let found = store?.find((client) => client.name === name.toLowerCase());
 
         if (found) {
           setOrders({
@@ -131,7 +132,6 @@ export default function useMainActions() {
     setAdress("");
     setFlavor("");
     setQuantity(5);
-    setPrice(10.0);
     setOrders({ list: [] });
   }
 

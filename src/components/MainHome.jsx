@@ -33,8 +33,7 @@ export default function MainHome() {
           <OrderInfo
             className="order-info-home"
             key={i}
-            stateOrder={{ orders, setOrders }}
-            father={""}
+            orderState={{ orders, setOrders }}
           >
             {order}
           </OrderInfo>

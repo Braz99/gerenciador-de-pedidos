@@ -1,22 +1,14 @@
+import useOrderActions from "../hooks/useOrderActions";
+
 export default function OrderInfo({
   children,
-  stateOrder,
   noOption,
   className,
+  orderState,
 }) {
-  let { setOrders, orders } = stateOrder;
+  let { removeOrder } = useOrderActions();
 
-  function removeOrder(e, flavor) {
-    e.preventDefault();
-
-    let newOrders = orders.list.filter((order) => order.flavor !== flavor);
-
-    setOrders({
-      list: [...newOrders],
-      quantity: newOrders.reduce((a, b) => a + b.quantity, 0),
-      total: newOrders.reduce((a, b) => a + b.price, 0),
-    });
-  }
+  let { orders, setOrders } = orderState;
 
   return (
     <div className={className}>
@@ -25,7 +17,9 @@ export default function OrderInfo({
       <h3>Preço: {children.price}</h3>
 
       {!noOption ? (
-        <button onClick={(e) => removeOrder(e, children.flavor)}>
+        <button
+          onClick={(e) => removeOrder(e, children.flavor, orders, setOrders)}
+        >
           Excluir
         </button>
       ) : (

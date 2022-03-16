@@ -16,7 +16,7 @@ export default function ClientInfo({ children }) {
           <OrderInfo
             key={i}
             className="order-info-list"
-            stateOrder={{ orders, setOrders }}
+            orderState={{ orders, setOrders }}
             noOption={true}
           >
             {item}
