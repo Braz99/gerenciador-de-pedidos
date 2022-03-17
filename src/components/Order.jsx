@@ -7,6 +7,7 @@ export default function Order({ values, className }) {
 
   return (
     <div className={className}>
+      <h2 className={`${className}-title`}>Pedidos</h2>
       <label htmlFor="flavor" className="flavors-select-label">
         Selecione o sabor:
       </label>
