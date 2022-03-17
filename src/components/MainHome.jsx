@@ -1,8 +1,9 @@
 import useMainActions from "../hooks/useMainActions";
 import Order from "./Order";
 import SiteInput from "./SiteInput";
-import "../styles/mainHome_s.css";
 import OrderInfo from "./OrderInfo";
+import "../styles/components/main-home-s.css";
+import "../styles/components/order-s.css";
 
 export default function MainHome() {
   let {
@@ -18,32 +19,52 @@ export default function MainHome() {
   } = useMainActions();
 
   return (
-    <main id="main_home" method="POST">
-      <h1>Registro de pedidos</h1>
-      <form id="form" onSubmit={(e) => handleSubmit(e)}>
-        <SiteInput name="name" data={name} label="Nome" update={handleUpdate} />
+    <main className="home-main" method="POST">
+      <h1 className="home-title">Registro de pedidos</h1>
+      <form className="home-form" onSubmit={(e) => handleSubmit(e)}>
         <SiteInput
+          className="name-input"
+          name="name"
+          data={name}
+          label="Nome"
+          update={handleUpdate}
+        />
+        <SiteInput
+          className="adress-input"
           name="adress"
           data={adress}
           label="Endereço"
           update={handleUpdate}
         />
 
-        {orders.list.map((order, i) => (
-          <OrderInfo
-            className="order-info-home"
-            key={i}
-            orderState={{ orders, setOrders }}
-          >
-            {order}
-          </OrderInfo>
-        ))}
-
         <Order
+          className="add-order"
           values={{ handleUpdate, flavor, quantity, price, orders, setOrders }}
         />
 
-        <button type="submit" id="button_form">
+        {/* <button
+          className="cart-button"
+          onClick={(e) => {
+            e.preventDefault();
+            setShow(!show);
+          }}
+        >
+          Cart
+        </button> */}
+
+        <div className={`orders-list`}>
+          {orders.list.map((order, i) => (
+            <OrderInfo
+              className="order-info-home"
+              key={i}
+              orderState={{ orders, setOrders }}
+            >
+              {order}
+            </OrderInfo>
+          ))}
+        </div>
+
+        <button type="submit" className="form-button">
           Registrar
         </button>
       </form>

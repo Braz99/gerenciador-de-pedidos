@@ -4,11 +4,14 @@ export default function SiteInput(props) {
 
   return (
     <>
-      <label htmlFor={name}>{props.label ?? name}:</label>
+      <label className={`${props.className}-label`} htmlFor={name}>
+        {props.label ?? name}:
+      </label>
       <input
         name={name}
         value={data}
         id={`input_${name}`}
+        className={props.className}
         onChange={(e) => props.update(e)}
       />
     </>
