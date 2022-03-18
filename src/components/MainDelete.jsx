@@ -1,16 +1,16 @@
 import useDeleteAction from "../hooks/useDeleteAction";
-import "../styles/mainDelete_s.css";
+import "../styles/components/main-delete-s.css";
 
 export default function MainDelete() {
   let handleDelete = useDeleteAction();
 
   return (
-    <main id="main_delete">
-      <h1>Apagar pedidos</h1>
+    <main className="delete-main">
+      <h1 className="delete-title">Apagar pedidos</h1>
 
-      <p>Clique no botão a seguir para apagar todos os pedidos dos clientes.</p>
+      <p className="delete-disclaimer">Clique no botão a seguir para apagar todos os pedidos dos clientes.</p>
 
-      <button id="button_delete" onClick={handleDelete}>
+      <button className="delete-button" onClick={handleDelete}>
         Apagar Pedidos
       </button>
     </main>

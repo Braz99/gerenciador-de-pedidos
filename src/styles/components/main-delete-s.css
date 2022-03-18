@@ -1,0 +1,39 @@
+.delete-main {
+  margin-left: 205px;
+  padding: 20px;
+  text-align: center;
+}
+
+.delete-title {
+  color: #d6132c;
+}
+
+.delete-disclaimer {
+  margin: 20px 0px;
+  font-size: 20px;
+}
+
+.delete-button {
+  width: 20%;
+  min-width: 135px;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #d6132c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #eb0202;
+  transition: 0.5s;
+}
+
+
+
+@media (max-width: 750px) {
+  .delete-main {
+    margin-left: 155px;
+  }
+}
