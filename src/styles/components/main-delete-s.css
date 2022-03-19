@@ -6,11 +6,15 @@
 
 .delete-title {
   color: #d6132c;
+  user-select: none;
+  font-weight: 400;
 }
 
 .delete-disclaimer {
   margin: 20px 0px;
   font-size: 20px;
+  user-select: none;
+  font-weight: 300;
 }
 
 .delete-button {
@@ -23,14 +27,14 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  user-select: none;
+  font-weight: 300;
 }
 
 .delete-button:hover {
   background-color: #eb0202;
   transition: 0.5s;
 }
-
-
 
 @media (max-width: 750px) {
   .delete-main {

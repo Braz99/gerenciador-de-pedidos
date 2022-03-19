@@ -1,15 +1,17 @@
 import { useClients } from "../provider/ClientsProvider";
-import "../styles/mainList_s.css";
+import "../styles/components/main-list-s.css";
 import ClientInfo from "./ClientInfo";
 
 function MainList() {
   let [listClients] = useClients();
 
   return (
-    <main id="main_list">
-      <ul id="area_list">
+    <main className="main-list">
+      <ul className="clients-list">
         {listClients.map((client, i) => (
-          <ClientInfo key={i}>{client}</ClientInfo>
+          <ClientInfo key={i} className="client-info">
+            {client}
+          </ClientInfo>
         ))}
       </ul>
     </main>

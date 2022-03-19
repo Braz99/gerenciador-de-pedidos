@@ -2,16 +2,16 @@ import useClientActions from "../hooks/useClientActions";
 import OrderInfo from "./OrderInfo";
 import useMainActions from "../hooks/useMainActions";
 
-export default function ClientInfo({ children }) {
+export default function ClientInfo({ children, className }) {
   let { removeClient } = useClientActions();
 
   let { orders, setOrders } = useMainActions();
 
   return (
-    <li>
-      <h2>Nome: {children.name}</h2>
-      <h3>Endereço: {children.adress}</h3>
-      <div className="orders-list-main">
+    <li className={className}>
+      <h2 className={`${className}-name`}>Nome: {children.name}</h2>
+      <h3 className={`${className}-adress`}>Endereço: {children.adress}</h3>
+      <div className="orders-list-list">
         {children.order.list.map((item, i) => (
           <OrderInfo
             key={i}
@@ -24,9 +24,18 @@ export default function ClientInfo({ children }) {
         ))}
       </div>
 
-      <h3>Total: R$ {children.order.total.toFixed(2).replace(".", ",")}</h3>
+      <h3 className={`${className}-orders-total`}>
+        Total: R$ {children.order.total.toFixed(2).replace(".", ",")}
+      </h3>
 
-      <button onClick={() => removeClient(children.name)}>Remover</button>
+      <div className={`${className}-div-button`}>
+        <button
+          className={`${className}-remove-button`}
+          onClick={() => removeClient(children.name)}
+        >
+          Remover
+        </button>
+      </div>
     </li>
   );
 }

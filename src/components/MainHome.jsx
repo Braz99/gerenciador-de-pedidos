@@ -52,7 +52,7 @@ export default function MainHome() {
           Cart
         </button> */}
 
-        <div className={`orders-list`}>
+        <div className={`orders-list-home`}>
           {orders.list.map((order, i) => (
             <OrderInfo
               className="order-info-home"
