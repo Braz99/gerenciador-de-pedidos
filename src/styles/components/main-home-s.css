@@ -1,5 +1,5 @@
 .home-main {
-  margin-left: 205px;
+  width: 100%;
 }
 
 .home-title {
@@ -83,8 +83,4 @@
   border: none;
 } */
 
-@media (max-width: 760px) {
-  .home-main {
-    margin-left: 155px;
-  }
-}
+

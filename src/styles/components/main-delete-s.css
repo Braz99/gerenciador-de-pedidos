@@ -1,5 +1,5 @@
 .delete-main {
-  margin-left: 205px;
+  width: 100%;
   padding: 20px;
   text-align: center;
 }
@@ -36,8 +36,4 @@
   transition: 0.5s;
 }
 
-@media (max-width: 750px) {
-  .delete-main {
-    margin-left: 155px;
-  }
-}
+

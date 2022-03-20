@@ -1,7 +1,6 @@
 .main-list {
-  margin-left: 205px;
+  width: 100%;
   padding: 20px;
-  box-sizing: border-box;
 }
 
 .clients-list {
@@ -53,9 +52,6 @@
 }
 
 @media (max-width: 760px) {
-  .main-list {
-    margin-left: 155px;
-  }
   .client-info-remove-button {
     width: 80%;
   }

@@ -1,9 +1,10 @@
 .navbar {
-  display: inline-block;
   background-color: #d61c32;
-  width: 200px;
   min-height: 100%;
-  position: fixed;
+}
+
+.menu {
+  width: 100%;
 }
 
 .item-menu,
@@ -28,10 +29,4 @@
 
 .active a {
   color: #d61c32;
-}
-
-@media (max-width: 760px) {
-  .navbar {
-    width: 150px;
-  }
 }
