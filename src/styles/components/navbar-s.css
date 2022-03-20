@@ -1,4 +1,4 @@
-#navbar {
+.navbar {
   display: inline-block;
   background-color: #d61c32;
   width: 200px;
@@ -6,20 +6,24 @@
   position: fixed;
 }
 
-.item_menu {
+.item-menu,
+.active {
   margin-top: 25px;
   list-style: none;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
 }
 
-.item_menu a {
+.item-menu a,
+.active a {
+  font-size: 20px;
   color: #fff;
-  font-size: 25px;
+  font-weight: 400;
 }
 
 .active {
   background-color: #fff;
+  border-radius: 5px 0px 0px 5px;
 }
 
 .active a {
@@ -27,11 +31,7 @@
 }
 
 @media (max-width: 760px) {
-  #navbar {
+  .navbar {
     width: 150px;
-  }
-
-  .item_menu a {
-    font-size: 20px;
   }
 }
