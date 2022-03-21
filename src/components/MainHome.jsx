@@ -1,9 +1,11 @@
 import useMainActions from "../hooks/useMainActions";
 import Order from "./Order";
 import SiteInput from "./SiteInput";
-import OrderInfo from "./OrderInfo";
+import Cart from "./Cart";
+import CartList from "./CartList";
 import "../styles/components/main-home-s.css";
 import "../styles/components/order-s.css";
+import "../styles/components/cart-s.css";
 
 export default function MainHome() {
   let {
@@ -16,6 +18,8 @@ export default function MainHome() {
     price,
     orders,
     setOrders,
+    show,
+    setShow,
   } = useMainActions();
 
   return (
@@ -42,27 +46,9 @@ export default function MainHome() {
           values={{ handleUpdate, flavor, quantity, price, orders, setOrders }}
         />
 
-        {/* <button
-          className="cart-button"
-          onClick={(e) => {
-            e.preventDefault();
-            setShow(!show);
-          }}
-        >
-          Cart
-        </button> */}
+        <Cart show={show} setShow={setShow} />
 
-        <div className={`orders-list-home`}>
-          {orders.list.map((order, i) => (
-            <OrderInfo
-              className="order-info-home"
-              key={i}
-              orderState={{ orders, setOrders }}
-            >
-              {order}
-            </OrderInfo>
-          ))}
-        </div>
+        {show ? <CartList orders={orders} setOrders={setOrders} /> : ""}
 
         <button type="submit" className="form-button">
           Registrar

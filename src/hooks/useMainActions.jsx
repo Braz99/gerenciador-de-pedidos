@@ -9,6 +9,7 @@ export default function useMainActions() {
   let [quantity, setQuantity] = useState(5);
   let [price, setPrice] = useState(10.0);
   let [orders, setOrders] = useState({ list: [] });
+  let [show, setShow] = useState(false);
 
   let [listClients, setListClients, saveStore] = useClients();
 
@@ -147,5 +148,7 @@ export default function useMainActions() {
     price,
     orders,
     setOrders,
+    show,
+    setShow,
   };
 }
