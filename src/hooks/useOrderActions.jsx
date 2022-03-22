@@ -30,11 +30,15 @@ export default function useOrderActions() {
       found.price = price;
 
       list = [...orders.list];
+
+      toast.warn("Sabor atualizado!");
     } else {
       list = [
         ...orders.list,
         { flavor: flavor, quantity: quantity, price: price },
       ];
+
+      toast.success("Sabor adicionado!");
     }
 
     setOrders({
@@ -51,9 +55,11 @@ export default function useOrderActions() {
 
     setOrders({
       list: [...newOrders],
-      quantity: newOrders.reduce((a, b) => a + b.quantity, 0),
-      total: newOrders.reduce((a, b) => a + b.price, 0),
+      quantity: newOrders.reduce((a, b) => a + parseInt(b.quantity), 0),
+      total: newOrders.reduce((a, b) => a + parseFloat(b.price), 0),
     });
+
+    toast.error("Pedido removido!");
   }
 
   return { addOrder, removeOrder };

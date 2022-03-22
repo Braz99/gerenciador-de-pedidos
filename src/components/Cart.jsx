@@ -1,4 +1,4 @@
-export default function Cart({ show, setShow }) {
+export default function Cart({ show, setShow, orders }) {
   function showCart(e) {
     e.preventDefault();
     setShow(!show);
@@ -6,6 +6,10 @@ export default function Cart({ show, setShow }) {
 
   return (
     <button className="cart-button" onClick={(e) => showCart(e)}>
+      <span className="cart-quantity">
+        {orders?.quantity === undefined ? 0 : orders?.quantity}
+      </span>
+
       <i className="cart-icon">
         <svg
           xmlns="http://www.w3.org/2000/svg"

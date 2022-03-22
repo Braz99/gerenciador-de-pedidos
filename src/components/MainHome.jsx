@@ -46,7 +46,7 @@ export default function MainHome() {
           values={{ handleUpdate, flavor, quantity, price, orders, setOrders }}
         />
 
-        <Cart show={show} setShow={setShow} />
+        <Cart show={show} setShow={setShow} orders={orders} />
 
         {show ? <CartList orders={orders} setOrders={setOrders} /> : ""}
 

@@ -11,7 +11,7 @@ export default function useMainActions() {
   let [orders, setOrders] = useState({ list: [] });
   let [show, setShow] = useState(false);
 
-  let [listClients, setListClients, saveStore] = useClients();
+  let [listClients, setListClients, saveStore, getStore] = useClients();
 
   let data = {
     name: "",
@@ -34,21 +34,15 @@ export default function useMainActions() {
       case "name":
         setName(e.target.value);
 
-        let store = JSON.parse(localStorage.getItem("clients"));
-
-        let found = store?.find((client) => client.name === name.toLowerCase());
+        let found = getStore?.find(
+          (client) => client.name === name.toLowerCase()
+        );
 
         if (found) {
           setOrders({
             list: [...found.order.list],
-            quantity: orders.list.reduce(
-              (a, b) => a + b.price + found.order.price,
-              0
-            ),
-            total: orders.list.reduce(
-              (a, b) => a + parseInt(b.quantity) + found.order.quantity,
-              0
-            ),
+            quantity: found.order.quantity,
+            total: found.order.total,
           });
           setAdress(found.adress);
         } else {

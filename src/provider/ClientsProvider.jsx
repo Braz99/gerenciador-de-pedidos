@@ -10,8 +10,12 @@ export function ClientsProvider({ children }) {
   let saveStore = (info) =>
     localStorage.setItem("clients", JSON.stringify([...info]));
 
+  let getStore = JSON.parse(localStorage.getItem("clients"));
+
   return (
-    <clientsContext.Provider value={[listClients, setListClients, saveStore]}>
+    <clientsContext.Provider
+      value={[listClients, setListClients, saveStore, getStore]}
+    >
       {children}
     </clientsContext.Provider>
   );
