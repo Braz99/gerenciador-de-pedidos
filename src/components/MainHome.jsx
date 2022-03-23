@@ -57,11 +57,7 @@ export default function MainHome() {
         </button>
       </form>
 
-      {show && orders?.quantity > 0 ? (
-        <CartList orders={orders} setOrders={setOrders} />
-      ) : (
-        false
-      )}
+      {show ? <CartList orders={orders} setOrders={setOrders} /> : false}
     </main>
   );
 }

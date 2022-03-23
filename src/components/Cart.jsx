@@ -1,14 +1,7 @@
-import { toast } from "react-toastify";
-
 export default function Cart({ show, setShow, orders }) {
   function showCart(e) {
     e.preventDefault();
-
-    if (orders?.quantity > 0) {
-      setShow(!show);
-    } else {
-      toast.error("Carrinho vazio!", { toastId: 125 });
-    }
+    setShow(!show);
   }
 
   return (
