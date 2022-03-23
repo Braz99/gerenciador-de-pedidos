@@ -78,21 +78,46 @@
 
 /* ============== Orders list cart ============= */
 
+.orders-list-cart::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+  border-radius: 10px;
+ 
+}
+
+.orders-list-cart::-webkit-scrollbar-button {
+  display: none;
+}
+
+.orders-list-cart::-webkit-scrollbar-thumb {
+  background-color: #3e3eac;
+  border-radius: 5px;
+}
+
 .orders-list-cart {
-  width: 100%;
-  padding: 10px;
   display: grid;
-  grid-template-columns: 30% 30% 30%;
+  z-index: 20000;
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+  padding: 10px;
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  background-color: #fff;
+  box-shadow: 0px 0px 2px;
+  border-radius: 5px;
+  width: 50vw;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .order-info-cart {
-  padding: 10px;
-  border-radius: 10px;
-  height: 200px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  height: 200px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .order-info-cart-flavor,

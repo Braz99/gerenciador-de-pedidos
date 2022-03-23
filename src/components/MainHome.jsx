@@ -23,9 +23,13 @@ export default function MainHome() {
   } = useMainActions();
 
   return (
-    <main className="home-main" method="POST">
+    <main className="home-main">
       <h1 className="home-title">Registro de pedidos</h1>
-      <form className="home-form" onSubmit={(e) => handleSubmit(e)}>
+      <form
+        className="home-form"
+        onSubmit={(e) => handleSubmit(e)}
+        onClick={() => (show ? setShow(!show) : false)}
+      >
         <SiteInput
           className="name-input"
           name="name"
@@ -48,12 +52,16 @@ export default function MainHome() {
 
         <Cart show={show} setShow={setShow} orders={orders} />
 
-        {show ? <CartList orders={orders} setOrders={setOrders} /> : ""}
-
         <button type="submit" className="form-button">
           Registrar
         </button>
       </form>
+
+      {show && orders?.quantity > 0 ? (
+        <CartList orders={orders} setOrders={setOrders} />
+      ) : (
+        false
+      )}
     </main>
   );
 }
