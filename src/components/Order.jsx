@@ -25,6 +25,8 @@ export default function Order({ values, className }) {
         <option value="abacaxi">Abacaxi</option>
         <option value="goiaba">Goiaba</option>
         <option value="morango">Morango</option>
+        <option value="caramelo">Caramelo</option>
+        <option value="maracujá">Maracujá</option>
       </select>
 
       <label htmlFor="quantity" className="quantity-input-label">
