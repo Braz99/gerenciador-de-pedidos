@@ -1,11 +1,13 @@
 .main-list {
   width: 100%;
+  height: 100vh;
   padding: 20px;
+  overflow-y: auto;
 }
 
 .clients-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -16,7 +18,6 @@
   flex-wrap: wrap;
   padding: 5px 20px;
   box-sizing: border-box;
-  min-width: 250px;
   list-style: none;
   box-shadow: 2px 2px 5px #ddd;
   border-radius: 10px;
@@ -53,7 +54,16 @@
   background-color: #eb0202;
 }
 
+@media (max-width: 1050px) {
+  .clients-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 760px) {
+  .clients-list {
+    grid-template-columns: 1fr;
+  }
   .client-info-remove-button {
     width: 80%;
   }

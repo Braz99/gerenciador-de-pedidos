@@ -1,5 +1,5 @@
 .layout-site {
   display: grid;
-  grid-template-columns: 20vw 75vw;
+  grid-template-columns: 20vw 80vw;
   min-height: 100vh;
 }
