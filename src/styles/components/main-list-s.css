@@ -5,21 +5,21 @@
 
 .clients-list {
   display: grid;
-  grid-template-columns: 45% 45%;
-  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .client-info {
-  display: grid;
-  grid-template-columns: 100%;
-  gap: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   padding: 5px 20px;
   box-sizing: border-box;
-  border-left: 5px solid #15142a;
-  margin-top: 20px;
-  width: 30%;
   min-width: 250px;
   list-style: none;
+  box-shadow: 2px 2px 5px #ddd;
+  border-radius: 10px;
 }
 
 .client-info-name,
@@ -32,13 +32,15 @@
   width: 100%;
   text-transform: capitalize;
   font-weight: 400;
+  margin-bottom: 10px;
 }
 
 .client-info-remove-button {
   padding: 10px;
-  font-size: 20px;
+  font-size: 18px;
   border-radius: 5px;
-  width: 70%;
+  width: 50%;
+  height: 40px;
   cursor: pointer;
   background-color: #d61c32;
   color: #fff;
