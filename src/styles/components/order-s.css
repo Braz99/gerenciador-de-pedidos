@@ -40,7 +40,7 @@
 
 .flavors-select {
   width: 70%;
-  min-width: 180px;
+  min-width: 150px;
   font-size: 20px;
   padding: 10px;
   cursor: pointer;
@@ -49,7 +49,7 @@
 
 .quantity-input {
   width: 30%;
-  min-width: 180px;
+  min-width: 150px;
   padding: 5px;
   font-size: 20px;
   text-align: center;
@@ -75,6 +75,14 @@
 }
 
 @media (max-width: 450px) {
+  .add-order {
+    padding: 0px;
+  }
+
+  .add-order-title {
+    font-size: 18px;
+  }
+
   .flavors-select {
     width: 80%;
     font-size: 16px;
@@ -91,7 +99,12 @@
 
   .add-order-button {
     font-size: 18px;
-    
+  }
+}
+
+@media (max-width: 300px) {
+  .add-order-button {
+    font-size: 15px;
   }
 }
 

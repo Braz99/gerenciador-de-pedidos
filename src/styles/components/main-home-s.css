@@ -5,9 +5,7 @@
 }
 
 .home-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   padding: 10px 0px;
   color: #d61c32;
   width: 100%;
@@ -26,6 +24,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  min-width: 150px;
   font-size: 20px;
   border-radius: 5px;
   padding: 10px;
@@ -67,7 +66,6 @@
   .name-input,
   .adress-input {
     font-size: 16px;
-    min-width: 180px;
   }
 
   .name-input-label,
@@ -83,10 +81,10 @@
 
 @media (max-width: 350px) {
   .home-title {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .home-form {
-    padding: 5px 10px;
+    padding: 5px 5px;
   }
 }
