@@ -16,7 +16,6 @@
   color: #d61c32;
   text-align: center;
   font-weight: 400;
-  font-weight: 400;
 }
 
 .add-order-title::after {
@@ -40,8 +39,8 @@
 }
 
 .flavors-select {
-  width: 50%;
-  min-width: 220px;
+  width: 70%;
+  min-width: 180px;
   font-size: 20px;
   padding: 10px;
   cursor: pointer;
@@ -50,7 +49,7 @@
 
 .quantity-input {
   width: 30%;
-  min-width: 200px;
+  min-width: 180px;
   padding: 5px;
   font-size: 20px;
   text-align: center;
@@ -73,6 +72,27 @@
   border-radius: 10px;
   cursor: pointer;
   font-weight: 400;
+}
+
+@media (max-width: 450px) {
+  .flavors-select {
+    width: 80%;
+    font-size: 16px;
+  }
+
+  .flavors-select-label,
+  .quantity-input-label {
+    font-size: 18px;
+  }
+
+  .quantity-input {
+    font-size: 16px;
+  }
+
+  .add-order-button {
+    font-size: 18px;
+    
+  }
 }
 
 /* ============== Orders list cart ============= */
@@ -206,10 +226,4 @@
 
 .order-info-list-flavor {
   text-transform: capitalize;
-}
-
-@media (max-width: 760px) {
-  .flavors-select {
-    width: 80%;
-  }
 }

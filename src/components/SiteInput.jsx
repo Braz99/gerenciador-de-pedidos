@@ -10,7 +10,6 @@ export default function SiteInput(props) {
       <input
         name={name}
         value={data}
-        id={`input_${name}`}
         className={props.className}
         onChange={(e) => props.update(e)}
       />

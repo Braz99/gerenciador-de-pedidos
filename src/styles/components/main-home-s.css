@@ -7,11 +7,11 @@
 .home-title {
   display: flex;
   justify-content: center;
-  padding: 10px;
-  text-align: center;
+  align-items: center;
+  padding: 10px 0px;
   color: #d61c32;
   width: 100%;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .home-form {
@@ -37,9 +37,8 @@
   font-size: 20px;
   color: #d61c32;
   width: 100%;
-  text-align: left;
   padding-left: 10px;
-  margin: 10px;
+  margin: 10px 0px;
 }
 
 .form-button {
@@ -60,6 +59,34 @@
   background-color: #333245;
 }
 
+@media (max-width: 450px) {
+  .home-title {
+    font-size: 25px;
+  }
 
+  .name-input,
+  .adress-input {
+    font-size: 16px;
+    min-width: 180px;
+  }
 
+  .name-input-label,
+  .adress-input-label {
+    font-size: 18px;
+  }
 
+  .form-button {
+    font-size: 18px;
+    width: 90%;
+  }
+}
+
+@media (max-width: 350px) {
+  .home-title {
+    font-size: 20px;
+  }
+
+  .home-form {
+    padding: 5px 10px;
+  }
+}
