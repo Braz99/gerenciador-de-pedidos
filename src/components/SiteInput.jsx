@@ -4,10 +4,11 @@ export default function SiteInput(props) {
 
   return (
     <>
-      <label className={`${props.className}-label`} htmlFor={name}>
+      <label className={`${props.className}-label`} htmlFor={`${name}-input`}>
         {props.label ?? name}:
       </label>
       <input
+        id={`${name}-input`}
         name={name}
         value={data}
         className={props.className}

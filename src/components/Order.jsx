@@ -29,10 +29,11 @@ export default function Order({ values, className }) {
         <option value="maracujá">Maracujá</option>
       </select>
 
-      <label htmlFor="quantity" className="quantity-input-label">
+      <label htmlFor="quantity-input" className="quantity-input-label">
         Quantidade:
       </label>
       <input
+        id="quantity-input"
         name="quantity"
         className="quantity-input"
         type="number"
