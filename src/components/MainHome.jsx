@@ -5,6 +5,7 @@ import Cart from "./Cart";
 import CartList from "./CartList";
 import "../styles/components/main-home-s.css";
 import "../styles/components/order-s.css";
+import "../styles/components/add-order-s.css";
 import "../styles/components/cart-s.css";
 
 export default function MainHome() {

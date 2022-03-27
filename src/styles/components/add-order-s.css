@@ -1,0 +1,107 @@
+.add-order {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.add-order-title {
+  margin-bottom: 10px;
+  width: 100%;
+  color: #d61c32;
+  text-align: center;
+  font-weight: 400;
+}
+
+.add-order-title::after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  background-color: currentColor;
+  height: 2px;
+  width: 40%;
+}
+
+.quantity-input-label,
+.flavors-select-label {
+  width: 100%;
+  color: #d61c32;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.flavors-select {
+  width: 70%;
+  min-width: 150px;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.quantity-input {
+  width: 30%;
+  min-width: 150px;
+  padding: 5px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.total-price {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.add-order-button {
+  padding: 10px;
+  font-size: 20px;
+  background-color: #3e3eac;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+@media (max-width: 450px) {
+  .add-order {
+    padding: 0px;
+  }
+
+  .add-order-title {
+    font-size: 18px;
+  }
+
+  .flavors-select {
+    width: 80%;
+    font-size: 16px;
+  }
+
+  .flavors-select-label,
+  .quantity-input-label {
+    font-size: 18px;
+  }
+
+  .quantity-input {
+    font-size: 16px;
+  }
+
+  .add-order-button {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 300px) {
+  .add-order-button {
+    font-size: 15px;
+  }
+}
