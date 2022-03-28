@@ -61,8 +61,12 @@
   width: 100%;
   height: 100%;
   padding: 20px 0px;
-  font-size: 25px;
+}
+
+.clients-list-message {
   font-weight: 400;
+  font-size: 25px;
+  text-align: center;
 }
 
 @media (max-width: 1050px) {
@@ -77,6 +81,10 @@
   }
   .client-info-remove-button {
     width: 80%;
+  }
+
+  .clients-list-message {
+    font-size: 20px;
   }
 }
 
@@ -95,5 +103,9 @@
   .client-info-remove-button {
     text-align: center;
     font-size: 16px;
+  }
+
+  .clients-list-message {
+    font-size: 18px;
   }
 }

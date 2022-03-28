@@ -2,7 +2,11 @@ import ClientInfo from "./ClientInfo";
 
 function ClientsList({ clients }) {
   if (clients.length === 0) {
-    return <div className="clients-list-empty">Sem clientes registrados!</div>;
+    return (
+      <div className="clients-list-empty">
+        <span className="clients-list-message">Sem clientes registrados!</span>
+      </div>
+    );
   }
 
   return (
