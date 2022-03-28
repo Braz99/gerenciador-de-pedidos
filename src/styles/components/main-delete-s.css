@@ -1,25 +1,32 @@
 .delete-main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
   width: 100%;
   padding: 20px;
-  text-align: center;
 }
 
 .delete-title {
+  width: 100%;
+  font-weight: 400;
+  text-align: center;
   color: #d6132c;
   user-select: none;
-  font-weight: 400;
 }
 
 .delete-disclaimer {
+  width: 100%;
   margin: 20px 0px;
   font-size: 20px;
-  user-select: none;
   font-weight: 300;
+  text-align: center;
+  user-select: none;
 }
 
 .delete-button {
-  width: 20%;
-  min-width: 135px;
+  width: 30%;
+  min-width: 200px;
   padding: 10px;
   font-size: 20px;
   background-color: #d6132c;
@@ -27,8 +34,8 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  user-select: none;
   font-weight: 300;
+  user-select: none;
 }
 
 .delete-button:hover {
@@ -36,4 +43,23 @@
   transition: 0.5s;
 }
 
+@media (max-width: 750px) {
+  .delete-main {
+    padding: 10px;
+  }
 
+  .delete-title {
+    font-size: 20px;
+  }
+
+  .delete-disclaimer,
+  .delete-button {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 450px) {
+  .delete-button {
+    min-width: 140px;
+  }
+}
