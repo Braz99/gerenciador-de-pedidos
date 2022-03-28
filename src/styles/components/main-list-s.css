@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 5px 20px;
+  padding: 20px 5px;
   box-sizing: border-box;
   list-style: none;
   box-shadow: 2px 2px 5px #ddd;
@@ -54,6 +54,17 @@
   background-color: #eb0202;
 }
 
+.clients-list-empty {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px 0px;
+  font-size: 25px;
+  font-weight: 400;
+}
+
 @media (max-width: 1050px) {
   .clients-list {
     grid-template-columns: repeat(2, 1fr);
@@ -66,5 +77,23 @@
   }
   .client-info-remove-button {
     width: 80%;
+  }
+}
+
+@media (max-width: 450px) {
+  .main-list {
+    padding: 5px;
+  }
+
+  .client-info {
+    padding: 5px;
+  }
+
+  .client-info-name,
+  .client-info-adress,
+  .client-info-orders-total,
+  .client-info-remove-button {
+    text-align: center;
+    font-size: 16px;
   }
 }
