@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { useClients } from "../provider/ClientsProvider";
 
 export default function useClientActions() {
@@ -9,6 +10,8 @@ export default function useClientActions() {
     setListClients([...newList]);
 
     saveStore(newList);
+
+    toast.error("Cliente removido!");
   }
 
   return { removeClient };
