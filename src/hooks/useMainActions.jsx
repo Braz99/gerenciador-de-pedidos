@@ -73,7 +73,7 @@ export default function useMainActions() {
     if (check.includes("") || orders.list.length === 0) {
       toast.error("Preencha todos os campos corretamente!", {
         autoClose: 2500,
-        id: 15,
+        toastId: 45,
       });
       return false;
     }
@@ -96,9 +96,8 @@ export default function useMainActions() {
       saveStore(listClients);
 
       toast.success("Pedido registrado!", {
-        autoClose: 3000,
-        position: "top-center",
-        hideProgressBar: true,
+        autoClose: 2500,
+        className: "form-success",
       });
     } else {
       exists.name = nameParsed;
@@ -116,10 +115,8 @@ export default function useMainActions() {
 
       saveStore([...listClients]);
 
-      toast.warning(`Pedido atualizado com sucesso!`, {
+      toast.warn(`Pedido atualizado com sucesso!`, {
         autoClose: 3000,
-        position: "top-center",
-        hideProgressBar: true,
       });
     }
 

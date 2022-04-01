@@ -31,14 +31,14 @@ export default function useOrderActions() {
 
       list = [...orders.list];
 
-      toast.warn("Sabor atualizado!");
+      toast.warn("Sabor atualizado!", { autoClose: 2000 });
     } else {
       list = [
         ...orders.list,
         { flavor: flavor, quantity: quantity, price: price },
       ];
 
-      toast.success("Sabor adicionado!");
+      toast.success("Sabor adicionado!", { autoClose: 2000 });
     }
 
     setOrders({

@@ -1,0 +1,35 @@
+.Toastify__toast--success.form-success {
+  background-color: #1271b6;
+}
+
+.Toastify__toast--success {
+  background: #3e3eac;
+}
+
+.Toastify__toast--warning {
+  background: #f1c40f;
+}
+.Toastify__toast--error {
+  background: #eb0202;
+}
+
+.Toastify__toast-container {
+  font-weight: 400;
+}
+
+@media (max-width: 750px) {
+  .Toastify__toast-container {
+    width: 50vw;
+  }
+
+  .Toastify__toast {
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 450px) {
+  .Toastify__toast-container {
+    width: 60vw;
+  }
+}

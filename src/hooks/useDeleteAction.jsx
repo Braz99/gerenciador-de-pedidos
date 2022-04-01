@@ -10,13 +10,11 @@ export default function useDeleteAction() {
       setListClients([]);
       toast.error("Pedidos apagados!", {
         autoClose: 2500,
-        position: "top-center",
         toastId: 20,
       });
     } else {
-      toast.warning("Não há pedidos a serem apagados!", {
+      toast.warn("Não há pedidos a serem apagados!", {
         autoClose: 2500,
-        position: "top-center",
         toastId: 21,
       });
     }
