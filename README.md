@@ -3,7 +3,10 @@ Link do projeto: https://gerenciadorpedidos.netlify.app/
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/45247886-24a7-480a-ac78-d92b37a41266/deploy-status)](https://gerenciadorpedidos.netlify.app/)
 
-## Sobre
+
+Updating....
+
+<!-- ## Sobre
 Este site foi feito com base no desafio do treinamento hiring coders, que é patrocinado pela VTEX. O desafio era criar um sistema para registrar cliente e produto. 
 Ele simula uma loja de doces de pote, que registra o pedido e o endereço de entrega, todos os dados são armazenados no localstorage, por ser apenas para fins didáticos. 
 
@@ -49,3 +52,4 @@ License MIT
 
 ## Autor 
 Fabrício Brazil
+ -->
