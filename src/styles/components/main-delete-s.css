@@ -3,7 +3,7 @@
   justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
-  width: 100%;
+  width: 80%;
   padding: 20px;
 }
 
@@ -59,6 +59,10 @@
 }
 
 @media (max-width: 450px) {
+  .delete-main {
+    width: 70%;
+  }
+
   .delete-button {
     min-width: 140px;
   }

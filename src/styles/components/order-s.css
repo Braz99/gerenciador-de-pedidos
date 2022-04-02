@@ -185,5 +185,6 @@
 @media (max-width: 350px) {
   .orders-list-list {
     width: 140px;
+    padding: 5px;
   }
 }
